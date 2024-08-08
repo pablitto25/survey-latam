@@ -15,6 +15,7 @@ interface FormData {
   comparacion: number;
   puertaDeRuptura: string,
   comentario: string,
+  fecha: string;
 }
 
 
@@ -48,6 +49,7 @@ export default function Form() {
     comparacion: 0,
     puertaDeRuptura: '',
     comentario: '',
+    fecha: new Date().toISOString().split('T')[0],
   });
 
 
@@ -100,6 +102,7 @@ export default function Form() {
           comparacion: 0,
           puertaDeRuptura: '',
           comentario: '',
+          fecha: new Date().toISOString().split('T')[0],
         });
       } else {
         alert('Error al enviar el formulario');

@@ -16,6 +16,7 @@ interface FormData {
   consideraUnaReferencia: string,
   puertaDeRuptura: string,
   comentario: string,
+  fecha: string;
 }
 
 const options1 = [
@@ -58,6 +59,7 @@ export default function Form() {
     consideraUnaReferencia: '',
     puertaDeRuptura: '',
     comentario: '',
+    fecha: new Date().toISOString().split('T')[0],
   });
 
 
@@ -112,6 +114,7 @@ export default function Form() {
           consideraUnaReferencia: '',
           puertaDeRuptura: '',
           comentario: '',
+          fecha: new Date().toISOString().split('T')[0],
         });
       } else {
         alert('Error al enviar el formulario');

@@ -15,6 +15,7 @@ interface FormData {
   recomendacion: number;
   referenciaLatamly: number;
   unaOpinion: string;
+  fecha: string;
 }
 
 const options1 = [
@@ -54,6 +55,7 @@ export default function Form() {
     recomendacion: 0,
     referenciaLatamly: 0,
     unaOpinion: "",
+    fecha: new Date().toISOString().split('T')[0],
   });
 
 
@@ -107,6 +109,7 @@ export default function Form() {
           recomendacion: 0,
           referenciaLatamly: 0,
           unaOpinion: "",
+          fecha: new Date().toISOString().split('T')[0],
         });
       } else {
         alert('Error al enviar el formulario');
