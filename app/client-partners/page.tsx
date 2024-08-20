@@ -375,8 +375,8 @@ export default function Form() {
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <Button type="submit" className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-3xl rounded-full" onClick={handleSubmit}>
-            <p className="m-8">ENVIAR</p>
+          <Button type="submit" className=" h-12 bg-[#FF0000] mb-8 text-white text-3xl rounded-full" onClick={handleSubmit}>
+            <p className="">ENVIAR</p>
           </Button>
         </div>
       </div>

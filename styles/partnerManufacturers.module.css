@@ -1,0 +1,38 @@
+.customRadio {
+    appearance: none;
+    /* Oculta el estilo predeterminado del radio */
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+}
+
+.customRadio::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: lightgray;
+    /* Color del círculo interno no seleccionado */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.customRadio:checked::before {
+    background-color: gray;
+    /* Color del círculo interno cuando está seleccionado */
+}
+
+.customRadio:checked {
+    border-color: gray;
+    /* Cambia el borde cuando está seleccionado */
+}
+
+.transition-container {
+    overflow: hidden;
+}
