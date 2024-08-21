@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Button, Textarea } from "@nextui-org/react";
-import ProgressBarTest from "@/components/ProgressBarTest";
+import ProgressBarRed from "@/components/ProgressBarRed";
 import styles from "@/styles/partnerManufacturers.module.css";
 import success from "@/public/images/success.gif";
 import Image from "next/image";
@@ -171,7 +171,7 @@ export default function Form() {
     <div className="w-full">
       <div className="pb-12">
         {!finish && (
-          <ProgressBarTest currentStep={currentStep} />
+          <ProgressBarRed currentStep={currentStep} />
         )}
       </div>
       <form className="w-full text-black">
