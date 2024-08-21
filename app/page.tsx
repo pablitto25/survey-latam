@@ -1,9 +1,4 @@
 "use client";
-import ProgressBar from "@/components/ProgressBar";
-import ProgressBarTest from "@/components/ProgressBarTest";
-import React, { useState } from "react";
-import Error from "./error";
-
 
 export default function Home() {
 

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Textarea, Checkbox } from "@nextui-org/react";
 import styles from "@/styles/partnerManufacturers.module.css";
-import success from "@/public/images/success.gif";
+import { img } from "@/config/img";
 import Image from "next/image";
 import ProgressBarBlack from "@/components/ProgressBarBlack";
 
@@ -71,6 +71,7 @@ export default function Form() {
   const [showGif, setShowGif] = useState(false); // Estado para controlar el GIF
   const [otrosChecked, setOtrosChecked] = useState(false);
   const [selectedMarcas, setSelectedMarcas] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para manejar el estado del botón
 
   const [formData, setFormData] = useState<FormData>({
     nombre: '',
@@ -146,9 +147,10 @@ export default function Form() {
   /* Fetch */
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setIsSubmitting(true); // Deshabilitar el botón al iniciar el envío
 
     try {
-      const response = await fetch('http://localhost:8080/api/client-partners/create', {
+      const response = await fetch('https://api.latamly.com/api/client-partners/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -184,6 +186,8 @@ export default function Form() {
       }
     } catch (error) {
       alert('Error de red al enviar el formulario');
+    }finally {
+      setIsSubmitting(false); // Habilitar el botón después de la respuesta
     }
   };
 
@@ -635,7 +639,11 @@ export default function Form() {
             )}
             {currentStep === 4 && (
               <div className="flex justify-center items-center">
-                <Button type="submit" className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full" onClick={handleSubmit}>
+                <Button type="submit" 
+                className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full" 
+                onClick={handleSubmit}
+                disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
+                >
                   <p className="m-8">ENVIAR</p>
                 </Button>
               </div>
@@ -643,7 +651,7 @@ export default function Form() {
           </div>
           {showGif && (
             <div className="flex justify-center items-center">
-              <Image src={success} alt="Success" width={100} height={100} />
+              <Image src={img.Imgs.success} alt="Success" width={100} height={100} />
             </div>
           )}
         </div>

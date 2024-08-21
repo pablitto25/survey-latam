@@ -8,5 +8,6 @@ export const img = {
     headerLogo: "/images/logo-latamly.png",
     footerLogo: "/images/logo-footer-latamly.png",
     headerLogoBlack: "/images/logo-header-black.png",
+    success: "/images/success.gif",
   }
 };
