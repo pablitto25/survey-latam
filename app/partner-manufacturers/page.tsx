@@ -88,6 +88,10 @@ export default function Form() {
   /* Fetch */
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    if (!validateStep()) {
+      alert('Please complete all required fields before submitting the form.');
+      return;
+    }
     setIsSubmitting(true); // Deshabilitar el botón al iniciar el envío
 
     try {
@@ -140,7 +144,7 @@ export default function Form() {
         }, 300);
       }
     } else {
-      alert('Por favor, complete todos los campos requeridos antes de continuar.');
+      alert('Please complete all required fields before submitting the form.');
     }
   };
 
@@ -165,6 +169,8 @@ export default function Form() {
         return Object.keys(formData.evaluaciones).length === atributos.length;
       case 3:
         return formData.motivoRuptura && formData.recomendacion && formData.nivelDeSatisfaccion;
+      case 4: 
+        return formData.comentario;
       default:
         return true;
     }
@@ -183,7 +189,7 @@ export default function Form() {
         <div>
           <div className={`transition-opacity duration-300 ${fade ? 'opacity-0' : 'opacity-100'}`}>
             {currentStep === 1 && (
-              <div className="grid grid-cols-2 gap-4 pb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 pb-8 pl-4 pr-4 lg:pl-0 lg:pr-0">
                 <div className="flex flex-col">
                   <p className="text-left text-lg">Name:</p>
                   <input className="border border-solid-4px h-8 border-gray-500"
@@ -221,7 +227,7 @@ export default function Form() {
           <div className={`transition-opacity duration-300 ${fade ? 'opacity-0' : 'opacity-100'}`}>
             {currentStep === 2 && (
               <div>
-                <div>
+                <div className="pl-4 lg:pl-0">
                   <p className="text-lg">
                     How would you rate the following attributes of Latamly Groups services?
                   </p>
@@ -232,7 +238,7 @@ export default function Form() {
                 {/* Iteración sobre los atributos */}
                 {atributos.map((atributo, index) => (
                   <div key={index}>
-                    <div className="flex justify-between items-center pt-2 pb-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center pt-4 md:pt-2 pb-4">
                       <div>
                         <label className="pr-4">{atributo}</label>
                       </div>
@@ -362,19 +368,19 @@ export default function Form() {
                     </div>
                   </div>
                   <div>
-                    <table className="table-auto w-full">
+                    <table className="table-auto w-sm">
                       <thead>
                         <tr className="text-sm">
-                          <td className="p-3">Very Unlikely</td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-3">Very Likely</td>
+                          <td className="w-1 md:w-auto p-0 md:p-3 text-center">Very Unlikely</td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="p-6 md:p-10"></td>
+                          <td className="w-1 md:w-auto p-0 md:p-3 text-center">Very Likely</td>
                         </tr>
                       </thead>
                       <tbody>

@@ -15,10 +15,10 @@ interface FormData {
   nivelDeSatisfaccion: number;
   motivoRuptura: string;
   recomendacion: number;
-  ofertasSimilares : number;
+  ofertasSimilares: number;
   comentario: string;
-  marcasClient: string[]; 
-  otrasMarcas: string; 
+  marcasClient: string[];
+  otrasMarcas: string;
   fecha: string;
 }
 
@@ -147,6 +147,11 @@ export default function Form() {
   /* Fetch */
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    // Llamar a validateStep para validar el formulario antes de enviarlo
+    if (!validateStep()) {
+      alert('Por favor, complete todos los campos requeridos antes de enviar el formulario.');
+      return;
+    }
     setIsSubmitting(true); // Deshabilitar el botón al iniciar el envío
 
     try {
@@ -186,7 +191,7 @@ export default function Form() {
       }
     } catch (error) {
       alert('Error de red al enviar el formulario');
-    }finally {
+    } finally {
       setIsSubmitting(false); // Habilitar el botón después de la respuesta
     }
   };
@@ -233,7 +238,9 @@ export default function Form() {
       case 2:
         return Object.keys(formData.evaluaciones).length === atributos.length;
       case 3:
-        return Object.keys(formData.evaluaciones).length === atributos.length && formData.nivelDeSatisfaccion;
+        return Object.keys(formData.atributosLatamly).length === atributos.length && formData.nivelDeSatisfaccion;
+      case 4:
+        return formData.motivoRuptura && formData.comentario && formData.recomendacion && formData.ofertasSimilares;
       default:
         return true;
     }
@@ -252,7 +259,7 @@ export default function Form() {
           <div className={`transition-opacity duration-300 ${fade ? 'opacity-0' : 'opacity-100'}`}>
             {currentStep === 1 && (
               <div>
-                <div className="grid grid-cols-2 gap-4 pb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 pb-8 pl-4 pr-4 lg:pl-0 lg:pr-0">
                   <div className="flex flex-col">
                     <p className="text-left text-lg">Nombre:</p>
                     <input className="border border-solid-4px h-8 border-gray-500 pl-1"
@@ -290,7 +297,7 @@ export default function Form() {
                       (Seleccione tantas como corresponda)
                     </p>
                   </div>
-                  <div className="grid grid-cols-3 gap-4 pt-6">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-6">
                     <div className="col-span-2 grid grid-cols-4 gap-4">
                       {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMax"].map((marca) => (
                         <Checkbox
@@ -308,7 +315,7 @@ export default function Form() {
                         Otra
                       </Checkbox>
                     </div>
-                    <div className="col-span-1 flex items-end">
+                    <div className="col-span-2 md:col-span-1 flex items-end">
                       <input
                         className="w-full border pl-2 border-solid h-8 border-gray-500"
                         name="otrasMarcas"
@@ -341,7 +348,7 @@ export default function Form() {
                 {/* Iteración sobre los atributos */}
                 {atributos.map((atributo, index) => (
                   <div key={index}>
-                    <div className="flex justify-between items-center pt-2 pb-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center pt-4 md:pt-2 pb-4">
                       <div>
                         <label className="pr-4">{atributo}</label>
                       </div>
@@ -432,7 +439,7 @@ export default function Form() {
                           </table>
                         </div>
                       </div>
-                      {index < atributos.length - 1 && <hr />}
+                      {index < atributos2.length - 1 && <hr />}
                     </div>
                   ))}
                 </div>
@@ -639,10 +646,10 @@ export default function Form() {
             )}
             {currentStep === 4 && (
               <div className="flex justify-center items-center">
-                <Button type="submit" 
-                className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full" 
-                onClick={handleSubmit}
-                disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
+                <Button type="submit"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
                 >
                   <p className="m-8">ENVIAR</p>
                 </Button>

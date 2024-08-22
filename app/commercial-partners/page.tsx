@@ -16,10 +16,10 @@ interface FormData {
   motivoRuptura: string;
   recomendacion: number;
   referenteLider: string,
-  ofertasSimilares : number;
+  ofertasSimilares: number;
   comentario: string;
-  marcasCommercial: string[]; 
-  otrasMarcas: string; 
+  marcasCommercial: string[];
+  otrasMarcas: string;
   fecha: string;
 }
 
@@ -149,6 +149,10 @@ export default function Form() {
   /* Fetch */
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    if (!validateStep()) {
+      alert('Por favor, complete todos los campos requeridos antes de enviar el formulario.');
+      return;
+    }
     setIsSubmitting(true); // Deshabilitar el botón al iniciar el envío
 
     try {
@@ -189,7 +193,7 @@ export default function Form() {
       }
     } catch (error) {
       alert('Error de red al enviar el formulario');
-    }finally {
+    } finally {
       setIsSubmitting(false); // Habilitar el botón después de la respuesta
     }
   };
@@ -236,13 +240,14 @@ export default function Form() {
       case 2:
         return Object.keys(formData.evaluaciones).length === atributos.length;
       case 3:
-        return Object.keys(formData.evaluaciones).length === atributos.length && formData.nivelDeSatisfaccion;
+        return Object.keys(formData.atributosLatamly).length === atributos.length && formData.nivelDeSatisfaccion;
+      case 4:
+        return formData.motivoRuptura && formData.comentario && formData.recomendacion && formData.ofertasSimilares && formData.referenteLider;
       default:
         return true;
     }
   };
 
-  console.log(formData);
   return (
     <div className="w-full">
       <div className="pb-12">
@@ -663,10 +668,10 @@ export default function Form() {
             )}
             {currentStep === 4 && (
               <div className="flex justify-center items-center">
-                <Button type="submit" 
-                className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full" 
-                onClick={handleSubmit}
-                disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
+                <Button type="submit"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
                 >
                   <p className="m-8">ENVIAR</p>
                 </Button>
