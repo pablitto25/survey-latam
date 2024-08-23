@@ -231,7 +231,15 @@ export default function Form() {
         const isBasicInfoValid = formData.nombre && formData.empresa && formData.cargo;
 
         // Verificar que al menos una marca esté seleccionada
-        const isMarcasSelected = formData.marcasClient && formData.marcasClient.length > 0;
+        const isSelectedValidBrand = formData.marcasClient.some((marca) =>
+          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMax"].includes(marca)
+        );
+
+        // Verificar si "Otra" está seleccionada y se ingresó una marca
+        const isOtherBrandValid = otrosChecked && formData.otrasMarcas.trim() !== '';
+
+        // Validar que una marca válida o una marca en "Otra" haya sido ingresada
+        const isMarcasSelected = isSelectedValidBrand || isOtherBrandValid;
 
         // Validar que ambas condiciones se cumplan
         return isBasicInfoValid && isMarcasSelected;
