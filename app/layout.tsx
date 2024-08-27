@@ -6,7 +6,6 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 
@@ -37,26 +36,22 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body
+      
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative mx-auto flex flex-col justify-center items-center max-w-5xl">
-
-            {/* <Navbar /> */}
-            {/* <Header /> */}
-
+          <div className="relative mx-auto flex flex-col justify-center items-center">
             <main className="container mx-auto max-w-full flex-grow bg-white">
               {children}
             </main>
-
-            <footer className="w-full flex items-center justify-center">
-              {/* <Footer/> */}
-            </footer>
           </div>
         </Providers>
+        <footer className="w-full flex items-center justify-center">
+          <Footer />
+        </footer>
       </body>
     </html>
   );

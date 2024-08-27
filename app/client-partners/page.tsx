@@ -32,35 +32,35 @@ const options1 = [
 
 
 const atributos = [
-  "La comunicación y la calidad de atención en general",
-  "El servicio Comercial y de Ventas del KAM asginado",
-  "El servicio de Marketing y los Planes de Marcas",
+  "La calidad de atención en general",
+  "El servicio comercial y de ventas del KAM asignado",
+  "El servicio de marketing y los planes de marcas",
   "El conocimiento del mercado de tu país",
   "La relación calidad/precio de nuestros productos",
-  "La disponibilidad de Stocks",
-  "La Innovación de los productos que lanzamos",
-  "La Rentabilidad del negocio",
-  "La Financiación en las operaciones",
-  "El servicio de logistica y los tiempos de entrega",
-  "Los Contenidos de Marketing y Comunicación regionalizado",
-  "El Customer SErvice dedicado al usuario",
-  "El RMA",
+  "La disponibilidad de stocks",
+  "La innovación de los productos que lanzamos",
+  "La rentabilidad del negocio",
+  "La financiación en las operaciones",
+  "El servicio de logística y los tiempos de entrega",
+  "Los contenidos de promoción y publicidad regionalizados",
+  "Servicio de atención al consumidor final",
+  "El servicio de RMA",
 ];
 
 const atributos2 = [
-  "La comunicación y la calidad de atención en general",
-  "El servicio Comercial y de Ventas del KAM asginado",
-  "El servicio de Marketing y los Planes de Marcas",
+  "La calidad de atención en general",
+  "El servicio comercial y de ventas del KAM asignado",
+  "El servicio de marketing y los planes de marcas",
   "El conocimiento del mercado de tu país",
   "La relación calidad/precio de nuestros productos",
-  "La disponibilidad de Stocks",
-  "La Innovación de los productos que lanzamos",
-  "La Rentabilidad del negocio",
-  "La Financiación en las operaciones",
-  "El servicio de logistica y los tiempos de entrega",
-  "Los Contenidos de Marketing y Comunicación regionalizado",
-  "El Customer Service dedicado al usuario",
-  "El RMA",
+  "La disponibilidad de stocks",
+  "La innovación de los productos que lanzamos",
+  "La rentabilidad del negocio",
+  "La financiación en las operaciones",
+  "El servicio de logística y los tiempos de entrega",
+  "Los contenidos de promoción y publicidad regionalizados",
+  "Servicio de atención al consumidor final",
+  "El servicio de RMA",
 ];
 
 
@@ -232,7 +232,7 @@ export default function Form() {
 
         // Verificar que al menos una marca esté seleccionada
         const isSelectedValidBrand = formData.marcasClient.some((marca) =>
-          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMax"].includes(marca)
+          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "B-Max"].includes(marca)
         );
 
         // Verificar si "Otra" está seleccionada y se ingresó una marca
@@ -255,7 +255,7 @@ export default function Form() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-5xl">
       <div className="pb-12">
         {!finish && (
           <ProgressBarBlack currentStep={currentStep} />
@@ -307,7 +307,7 @@ export default function Form() {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-6">
                     <div className="col-span-2 grid grid-cols-4 gap-4">
-                      {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMax"].map((marca) => (
+                      {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "B-Max"].map((marca) => (
                         <Checkbox
                           key={marca}
                           isSelected={selectedMarcas.includes(marca)}
@@ -407,21 +407,21 @@ export default function Form() {
                       ¿Cómo calificaría de acuerdo al nivel de importancia, a cada uno de los atributos de Latamly Group?
                     </p>
                     <p className="text-sm text-gray-600">
-                      (Puntuación del 1 al 5 donde 1 - Para nada imortante y 5 - Muy Importante)
+                      (Puntuación del 1 al 5 donde 1 - Nada Importante y 5 - Muy Importante)
                     </p>
                   </div>
                   {/* Iteración sobre los atributos */}
                   {atributos2.map((atributo, index) => (
                     <div key={index}>
-                      <div className="flex justify-between items-center pt-2 pb-4">
-                        <div className="w-1/2">
-                          <label className="pr-4">{atributo}</label>
+                      <div className="flex flex-col md:flex-row justify-between items-center pt-4 md:pt-2 pb-4">
+                        <div className="w-1/2 text-center md:text-left">
+                          <label className="pr-4 font-bold md:font-normal text-nowrap">{atributo}</label>
                         </div>
                         <div>
                           <table className="table-auto">
                             <thead>
                               <tr className="text-sm">
-                                <td className="text-center p-3">Para nada importante</td>
+                                <td className="text-center p-3">Nada Importante</td>
                                 <td className="text-center p-6">No importante</td>
                                 <td className="text-center p-6">Neutral</td>
                                 <td className="text-center p-6">Importante</td>
@@ -461,17 +461,17 @@ export default function Form() {
                   <div>
                     <table className="table-auto w-full">
                       <thead>
-                        <tr className="text-sm">
-                          <td className="">Muy insatisfecho</td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="p-10"></td>
-                          <td className="">Muy satisfecho</td>
+                        <tr className="text-center text-sm">
+                          <td className="">1</td>
+                          <td className="">2</td>
+                          <td className="">3</td>
+                          <td className="">4</td>
+                          <td className="">5</td>
+                          <td className="">6</td>
+                          <td className="">7</td>
+                          <td className="">8</td>
+                          <td className="">9</td>
+                          <td className="">10</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -507,7 +507,7 @@ export default function Form() {
                 <div className="pt-14 pl-8 pb-14 pr-8">
                   <div className="flex flex-row">
                     <div>
-                      <p>¿Qué motivos pueden ser la puerta de ruptura de vínculo con Latamly Group?</p>
+                      <p>¿Cuales situaciones o acciones pueden ser motivos de ruptura de vinculos?</p>
                     </div>
                   </div>
                   <div>
@@ -517,7 +517,7 @@ export default function Form() {
                       radius="none"
                       labelPlacement="outside"
                       placeholder="Escribir"
-                      className="w-full"
+                      className="w-full pt-3"
                       name="motivoRuptura"
                       value={formData.motivoRuptura}
                       onChange={handleChange}
@@ -596,7 +596,7 @@ export default function Form() {
                 </div>
                 <div className="pt-14 pl-8 pb-14 pr-8 bg-[#F3EFEF]">
                   <div className="flex flex-row">
-                    <div>
+                    <div className="pb-3">
                       <p>¿Hay alguna otra cosa que te gustaría decirnos?</p>
                     </div>
                   </div>
@@ -622,8 +622,8 @@ export default function Form() {
           <div className={`transition-opacity duration-300 ${fade ? 'opacity-0' : 'opacity-100'}`}>
             {finish && (
               <div className="flex flex-col justify-center items-center pt-48 pb-48">
-                <p className="text-4xl">Thank you very much for your feedback!</p>
-                <p className="text-4xl">We continue working to evolve trade together.</p>
+                <p className="text-4xl">¡Agradecemos mucho tu feedback!</p>
+                <p className="text-4xl">Seguimos trabajando para desarrollar el negocio juntos.</p>
               </div>
             )}
           </div>
@@ -634,7 +634,7 @@ export default function Form() {
             {(currentStep > 1 && currentStep < 5) && (
               <div>
                 <Button
-                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleBack}
                 >
                   VOLVER
@@ -645,7 +645,7 @@ export default function Form() {
 
               <div>
                 <Button
-                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleNext}
                 >
                   SIGUIENTE
@@ -655,7 +655,7 @@ export default function Form() {
             {currentStep === 4 && (
               <div className="flex justify-center items-center">
                 <Button type="submit"
-                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-2xl rounded-full"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleSubmit}
                   disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
                 >

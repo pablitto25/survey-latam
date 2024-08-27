@@ -178,7 +178,7 @@ export default function Form() {
 
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-5xl">
       <div className="pb-12">
         {!finish && (
           <ProgressBarRed currentStep={currentStep} />
@@ -368,19 +368,19 @@ export default function Form() {
                     </div>
                   </div>
                   <div>
-                    <table className="table-auto w-sm">
+                    <table className="table-auto w-full">
                       <thead>
-                        <tr className="text-sm">
-                          <td className="w-1 md:w-auto p-0 md:p-3 text-center">Very Unlikely</td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="p-6 md:p-10"></td>
-                          <td className="w-1 md:w-auto p-0 md:p-3 text-center">Very Likely</td>
+                        <tr className="text-center text-sm">
+                          <td className="">1</td>
+                          <td className="">2</td>
+                          <td className="">3</td>
+                          <td className="">4</td>
+                          <td className="">5</td>
+                          <td className="">6</td>
+                          <td className="">7</td>
+                          <td className="">8</td>
+                          <td className="">9</td>
+                          <td className="">10</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -451,7 +451,7 @@ export default function Form() {
             {(currentStep > 1 && currentStep < 5) && (
               <div>
                 <Button
-                  className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-3xl rounded-full"
+                  className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleBack}
                 >
                   BACK
@@ -462,7 +462,7 @@ export default function Form() {
 
               <div>
                 <Button
-                  className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-3xl rounded-full"
+                  className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleNext}
                 >
                   NEXT
@@ -472,7 +472,7 @@ export default function Form() {
             {currentStep === 4 && (
               <div className="flex justify-center items-center">
                 <Button type="submit"
-                  className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-3xl rounded-full"
+                  className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleSubmit}
                   disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
                 >

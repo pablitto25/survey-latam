@@ -2,7 +2,6 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { HeaderClientPartners } from "@/components/header-client-partners";
-import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +25,6 @@ export default function PricingLayout({
     <section className="flex flex-col items-center justify-center gap-4 py-8">
       {children}
     </section>
-    <Footer/>
     </>
   );
 }

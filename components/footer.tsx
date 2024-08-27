@@ -9,7 +9,7 @@ export const Footer = () => {
   return (
 
     <footer className="flex justify-center items-center bg-[#D2D3D4] w-full h-36">
-      <div className="flex justify-between items-center w-full pl-8 pr-8">
+      <div className="container flex justify-around items-center w-full mx-auto pl-10 pr-10">
         <div className="flex flex-col gap-8">
           <div>
           <NextLink className="flex justify-start items-center gap-1 hover:font-bold" href="https://latamly.com/politicas-de-privacidad/">Políticas de Privacidad</NextLink>
