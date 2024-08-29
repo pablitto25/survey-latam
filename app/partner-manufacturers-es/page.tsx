@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Button, Textarea } from "@nextui-org/react";
-import ProgressBarRed from "@/components/ProgressBarRed";
 import styles from "@/styles/partnerManufacturers.module.css";
 import { img } from "@/config/img";
 import Image from "next/image";
+import ProgressBarRedEs from "@/components/ProgressBarRedEs";
 
 interface FormData {
   nombre: string;
@@ -30,17 +30,17 @@ const options1 = [
 
 
 const atributos = [
-  "Communication and overall quality of service",
-  "Business profitability",
-  "Brand plan by territory",
-  "International logistics",
-  "Regionalized marketing and communication content",
-  "Customer service dedicated to users and RMA",
-  "Procurement management",
-  "Payment management",
-  "Selection and management with commercial partners",
-  "Overall feedback on the business, products, etc.",
-  "Knowledge of the market in Latin American countries",
+  "La comunicación y la calidad de atención en general",
+"La Rentabilidad del negocio",
+"El Plan de la marca por territorio",
+"La Logística Internacional",
+"Los contenidos de marketing y comunicación regionalizados",
+"El customer service dedicado al usuario y RMA",
+"La gestión de compras",
+"La gestión de pagos",
+"La selección y gestión con los partners comerciales",
+"El feedback en general del negocio, productos, etc.",
+"El conocimiento del mercado de los países latinoamericanos",
 ];
 
 export default function Form() {
@@ -169,7 +169,7 @@ export default function Form() {
         return Object.keys(formData.evaluaciones).length === atributos.length;
       case 3:
         return formData.motivoRuptura && formData.recomendacion && formData.nivelDeSatisfaccion;
-      case 4: 
+      case 4:
         return formData.comentario;
       default:
         return true;
@@ -181,7 +181,7 @@ export default function Form() {
     <div className="w-full max-w-5xl">
       <div className="pb-12">
         {!finish && (
-          <ProgressBarRed currentStep={currentStep} />
+          <ProgressBarRedEs currentStep={currentStep} />
         )}
       </div>
       <form className="w-full text-black">
@@ -191,30 +191,30 @@ export default function Form() {
             {currentStep === 1 && (
               <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 pb-8 pl-4 pr-4 lg:pl-0 lg:pr-0">
                 <div className="flex flex-col">
-                  <p className="text-left text-lg">Name:</p>
+                  <p className="text-left text-lg">Nombre:</p>
                   <input className="border border-solid-4px h-8 border-gray-500"
                     name="nombre"
-                    placeholder="Type..."
+                    placeholder="Escribir..."
                     value={formData.nombre}
                     onChange={handleChange}
                     required
                   />
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-left text-lg">Company:</p>
+                  <p className="text-left text-lg">Empresa:</p>
                   <input className="border border-solid-4px h-8 border-gray-500"
                     name="empresa"
-                    placeholder="Type..."
+                    placeholder="Escribir..."
                     value={formData.empresa}
                     onChange={handleChange}
                     required
                   />
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-left text-lg">Position:</p>
+                  <p className="text-left text-lg">Cargo:</p>
                   <input className="border border-solid-4px h-8 border-gray-500"
                     name="cargo"
-                    placeholder="Type..."
+                    placeholder="Escribir..."
                     value={formData.cargo}
                     onChange={handleChange}
                     required
@@ -232,10 +232,10 @@ export default function Form() {
               <div>
                 <div className="pl-4 lg:pl-0">
                   <p className="text-lg">
-                    How would you rate the following attributes of Latamly Groups services?
+                    ¿Cómo evaluarías los siguientes atributos del servicio de Latamly Group?
                   </p>
                   <p className="text-sm text-gray-600">
-                    (Very Dissatisfied to Very Satisfied on a scale of 1 to 5, with each point)
+                    (Puntuación del 1 al 5 donde, 1 = Muy insatisfecho y 5 = Muy satisfecho)
                   </p>
                 </div>
                 {/* Iteración sobre los atributos */}
@@ -249,11 +249,11 @@ export default function Form() {
                         <table className="table-auto">
                           <thead>
                             <tr className="text-sm">
-                              <td className="p-3">Very unsatisfied</td>
-                              <td className="p-6">Unsatisfied</td>
+                              <td className="p-3">Muy Insatisfecho</td>
+                              <td className="p-6">Insatisfecho</td>
                               <td className="p-6">Neutral</td>
-                              <td className="p-6">Satisfied</td>
-                              <td className="p-3">Very Satisfied</td>
+                              <td className="p-6">Satisfecho</td>
+                              <td className="p-3">Muy satisfecho</td>
                             </tr>
                           </thead>
                           <tbody>
@@ -289,7 +289,7 @@ export default function Form() {
                 <div className="pt-14 pl-8 pb-14 pr-8">
                   <div className="flex flex-row pb-4">
                     <div>
-                      <p className="text-lg">What do you value most about the relationship and what drives you to continue working with Latamly Group?</p>
+                      <p className="text-lg">¿Qué es lo que más valora de la relación y qué los impulsa a continuar trabajando con Latamly Group?</p>
                     </div>
                   </div>
                   <div>
@@ -309,7 +309,7 @@ export default function Form() {
                 <div className="pt-14 pl-8 pb-14 pr-8 bg-[#F3EFEF]">
                   <div className="flex flex-row pb-4">
                     <div>
-                      <p className="text-lg">What situations or actions may be grounds for severing ties with Latamly Group?</p>
+                      <p className="text-lg">¿Qué motivos pueden ser la puerta de ruptura del vínculo con Latamly Group?</p>
                     </div>
                   </div>
                   <div>
@@ -329,19 +329,19 @@ export default function Form() {
                 <div className="pt-14 pl-8">
                   <div className="flex flex-row">
                     <div className="pb-4">
-                      <p className="text-lg">If you are asked for references for Latamly Group. how likely are you to recommend us?</p>
-                      <p className="text-sm text-gray-600">(Very Unlikely to Very Likely on a scale of 1 to 5)</p>
+                      <p className="text-lg">¿Si les solicitan referencias de Latamly Group ¿Qué tan probable es que nos recomienden?</p>
+                      <p className="text-sm text-gray-600">(Muy poco probable a Muy probable con escala de 1 a 5)</p>
                     </div>
                   </div>
                   <div>
                     <table className="table-auto">
                       <thead>
                         <tr className="text-sm">
-                          <td className="p-3">Very Unlikely</td>
-                          <td className="p-10">Unlikely</td>
+                          <td className="p-3">Muy Poco probable</td>
+                          <td className="p-10">Poco probable</td>
                           <td className="p-10">Neutral</td>
-                          <td className="p-10">Likely</td>
-                          <td className="p-3">Very Likely</td>
+                          <td className="p-10">Probable</td>
+                          <td className="p-3">Muy probable</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -366,8 +366,8 @@ export default function Form() {
                 <div className="pt-14 pl-8 pb-8">
                   <div className="flex flex-row">
                     <div className="pb-4">
-                      <p className="text-lg">How would you rate your level of satisfaction woth Latamly Group?</p>
-                      <p className="text-sm text-gray-600">(Very Unlikely to Very Likely on a scale of 1 to 10)</p>
+                      <p className="text-lg">¿Cómo evaluarías tu nivel de satisfacción con Latamly Group?</p>
+                      <p className="text-sm text-gray-600">(Puntuación del 1 al 10 donde: 1 = Muy insatisfecho y 10 = Muy satisfecho)</p>
                     </div>
                   </div>
                   <div>
@@ -418,7 +418,7 @@ export default function Form() {
               <div className="pt-14 pl-8 pb-14 pr-8">
                 <div className="flex flex-row pb-4">
                   <div>
-                    <p className="text-lg">Is there anything else you would like to tell us?</p>
+                    <p className="text-lg">¿Hay alguna otra cosa que te gustaría decirnos?</p>
                   </div>
                 </div>
                 <div>
@@ -442,8 +442,8 @@ export default function Form() {
           <div className={`transition-opacity duration-300 ${fade ? 'opacity-0' : 'opacity-100'}`}>
             {finish && (
               <div className="flex flex-col justify-center items-center pt-48 pb-48">
-                <p className="text-4xl">Thank you very much for your feedback!</p>
-                <p className="text-4xl">We continue working to evolve trade together.</p>
+                <p className="text-4xl">¡Agredecemos mucho tu feedback!</p>
+                <p className="text-4xl">Seguimos trabajando para desarrollar el negocio juntos.</p>
               </div>
             )}
           </div>
@@ -457,7 +457,7 @@ export default function Form() {
                   className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleBack}
                 >
-                  BACK
+                  ATRAS
                 </Button>
               </div>
             )}
@@ -468,7 +468,7 @@ export default function Form() {
                   className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-[1.2rem] rounded-full"
                   onClick={handleNext}
                 >
-                  NEXT
+                  SIGUIENTE
                 </Button>
               </div>
             )}
@@ -479,7 +479,7 @@ export default function Form() {
                   onClick={handleSubmit}
                   disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
                 >
-                  <p className="m-8">SEND</p>
+                  <p className="m-8">ENVIAR</p>
                 </Button>
               </div>
             )}
