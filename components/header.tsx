@@ -30,10 +30,10 @@ export const Header = () => {
             </div>
             <div className="flex justify-center items-center gap-2 pt-2">
               <div className="w-9 bg-white rounded-lg text-center">
-                <Link href={"#"} className="text-[#FF0000] text-lg ">EN </Link>
+                <Link href={"/partner-manufacturers"} className="text-[#FF0000] text-lg ">EN </Link>
               </div>
               <div className="w-9 border-solid border-2 border-white rounded-lg text-center">
-                <Link href={"#"} className="text-white">ES</Link>
+                <Link href={"/partner-manufacturers-es"} className="text-white">ES</Link>
               </div>
             </div>
           </div>
