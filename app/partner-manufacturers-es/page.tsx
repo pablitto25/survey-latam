@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button, Textarea } from "@nextui-org/react";
+import { Button, Spinner, Textarea } from "@nextui-org/react";
 import styles from "@/styles/partnerManufacturers.module.css";
 import { img } from "@/config/img";
 import Image from "next/image";
@@ -473,16 +473,21 @@ export default function Form() {
               </div>
             )}
             {currentStep === 4 && (
-              <div className="flex justify-center items-center">
-                <Button type="submit"
-                  className="w-40 h-12 bg-[#FF0000] mb-8 text-white text-[1.2rem] rounded-full"
-                  onClick={handleSubmit}
-                  disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
-                >
-                  <p className="m-8">ENVIAR</p>
-                </Button>
-              </div>
-            )}
+                          <div className="flex justify-center items-center">
+                            <Button
+                              type="submit"
+                              className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
+                              onClick={handleSubmit}
+                              disabled={isSubmitting}
+                            >
+                              {isSubmitting ? (
+                                <Spinner className="animate-spin text-white text-xl" />
+                              ) : (
+                                <p className="m-0">ENVIAR</p>
+                              )}
+                            </Button>
+                          </div>
+                        )}
           </div>
           {showGif && (
             <div className="flex justify-center items-center">

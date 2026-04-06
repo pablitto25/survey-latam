@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button, Textarea, Checkbox } from "@nextui-org/react";
+import { Button, Textarea, Checkbox, Spinner } from "@nextui-org/react";
 import styles from "@/styles/partnerManufacturers.module.css";
 import { img } from "@/config/img";
 import Image from "next/image";
 import ProgressBarBlack from "@/components/ProgressBarBlack";
+
 
 interface FormData {
   nombre: string;
@@ -463,7 +464,7 @@ export default function Form() {
                   <div>
                     <table className="table-auto w-full">
                       <thead>
-                      <tr className="text-center text-sm">
+                        <tr className="text-center text-sm">
                           <td className="">1</td>
                           <td className="">2</td>
                           <td className="">3</td>
@@ -676,12 +677,17 @@ export default function Form() {
             )}
             {currentStep === 4 && (
               <div className="flex justify-center items-center">
-                <Button type="submit"
-                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full"
+                <Button
+                  type="submit"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
                   onClick={handleSubmit}
-                  disabled={isSubmitting} // Deshabilitar el botón cuando isSubmitting es true
+                  disabled={isSubmitting}
                 >
-                  <p className="m-8">ENVIAR</p>
+                  {isSubmitting ? (
+                    <Spinner className="animate-spin text-white text-xl" />
+                  ) : (
+                    <p className="m-0">ENVIAR</p>
+                  )}
                 </Button>
               </div>
             )}

@@ -1,3 +1,4 @@
+import { color } from "framer-motion";
 import { tv } from "tailwind-variants";
 
 export const title = tv({
@@ -50,4 +51,32 @@ export const subtitle = tv({
   defaultVariants: {
     fullWidth: true,
   },
+});
+
+export const inputForm = tv({
+  base: "outline-none placeholder-gray-600 w-full border-b-1 border-[#000000] pb-4 font-sans",
+  variants: {
+    color: {
+      black: 'text-gray-600'
+    },
+    sizeText: {
+      ph: 'text-[13px]'
+    }
+  }
+});
+
+export const textAreaForm = tv({
+  base: "border-solid border-1 border-[#000000] rounded-xl w-full h-40 p-3 mt-4 placeholder-gray-600",
+  variants: {
+    sizeText: {
+      ph: 'text-[13px]'
+    },
+    color: {
+      black: 'text-gray-600'
+    }
+  }
+});
+
+export const buttonForm = tv({
+  base: "flex justify-center items-center border-solid border-1 border-[#000000] rounded-full w-[5.8rem] h-[2.6rem]"
 });

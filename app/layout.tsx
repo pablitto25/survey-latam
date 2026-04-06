@@ -49,9 +49,9 @@ export default function RootLayout({
             </main>
           </div>
         </Providers>
-        <footer className="w-full flex items-center justify-center">
+        {/* <footer className="w-full flex items-center justify-center">
           <Footer />
-        </footer>
+        </footer> */}
       </body>
     </html>
   );
