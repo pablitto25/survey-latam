@@ -31,16 +31,16 @@ const options1 = [
 
 const atributos = [
   "La comunicación y la calidad de atención en general",
-"La Rentabilidad del negocio",
-"El Plan de la marca por territorio",
-"La Logística Internacional",
-"Los contenidos de marketing y comunicación regionalizados",
-"El customer service dedicado al usuario y RMA",
-"La gestión de compras",
-"La gestión de pagos",
-"La selección y gestión con los partners comerciales",
-"El feedback en general del negocio, productos, etc.",
-"El conocimiento del mercado de los países latinoamericanos",
+  "La Rentabilidad del negocio",
+  "El Plan de la marca por territorio",
+  "La Logística Internacional",
+  "Los contenidos de marketing y comunicación regionalizados",
+  "El customer service dedicado al usuario y RMA",
+  "La gestión de compras",
+  "La gestión de pagos",
+  "La selección y gestión con los partners comerciales",
+  "El feedback en general del negocio, productos, etc.",
+  "El conocimiento del mercado de los países latinoamericanos",
 ];
 
 export default function Form() {
@@ -418,7 +418,7 @@ export default function Form() {
               <div className="pt-14 pl-8 pb-14 pr-8">
                 <div className="flex flex-row pb-4">
                   <div>
-                    <p className="text-lg">¿Hay alguna otra cosa que te gustaría decirnos?</p>
+                    <p className="text-lg">¿Hay algún otro comentario, oportunidad de mejora o sugerencia que nos ayude a potenciar nuestra relación comercial?</p>
                   </div>
                 </div>
                 <div>
@@ -473,21 +473,21 @@ export default function Form() {
               </div>
             )}
             {currentStep === 4 && (
-                          <div className="flex justify-center items-center">
-                            <Button
-                              type="submit"
-                              className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
-                              onClick={handleSubmit}
-                              disabled={isSubmitting}
-                            >
-                              {isSubmitting ? (
-                                <Spinner className="animate-spin text-white text-xl" />
-                              ) : (
-                                <p className="m-0">ENVIAR</p>
-                              )}
-                            </Button>
-                          </div>
-                        )}
+              <div className="flex justify-center items-center">
+                <Button
+                  type="submit"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <Spinner className="animate-spin text-white text-xl" />
+                  ) : (
+                    <p className="m-0">ENVIAR</p>
+                  )}
+                </Button>
+              </div>
+            )}
           </div>
           {showGif && (
             <div className="flex justify-center items-center">

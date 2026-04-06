@@ -235,7 +235,7 @@ export default function Form() {
 
         // Verificar que al menos una marca esté seleccionada
         const isSelectedValidBrand = formData.marcasCommercial.some((marca) =>
-          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "B-Max"].includes(marca)
+          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMAX"].includes(marca)
         );
 
         // Verificar si "Otra" está seleccionada y se ingresó una marca
@@ -310,7 +310,7 @@ export default function Form() {
                   </div>
                   <div className="grid grid-cols-3 gap-4 pt-6">
                     <div className="col-span-2 grid grid-cols-4 gap-4">
-                      {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "B-Max"].map((marca) => (
+                      {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMAX", "Aiper", "PXN", "Anthbot"].map((marca) => (
                         <Checkbox
                           key={marca}
                           isSelected={selectedMarcas.includes(marca)}
@@ -510,7 +510,7 @@ export default function Form() {
                 <div className="pt-14 pl-8 pb-14 pr-8">
                   <div className="flex flex-row">
                     <div>
-                      <p>¿Cuales situaciones o acciones pueden ser motivos de ruptura de vinculos?</p>
+                      <p>¿Cuáles situaciones o acciones pueden ser motivos de ruptura de vínculos?</p>
                     </div>
                   </div>
                   <div>
@@ -620,7 +620,7 @@ export default function Form() {
                 <div className="pt-14 pl-8 pb-14 pr-8">
                   <div className="flex flex-row">
                     <div>
-                      <p>¿Hay alguna otra cosa que te gustaría decirnos?</p>
+                      <p>¿Hay algún otro comentario, oportunidad de mejora o sugerencia que nos ayude a potenciar nuestra relación comercial?</p>
                     </div>
                   </div>
                   <div>

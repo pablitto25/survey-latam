@@ -17,6 +17,7 @@ interface FormData {
   motivoRuptura: string;
   recomendacion: number;
   ofertasSimilares: number;
+  interesImportadorDirecto: number;
   comentario: string;
   marcasClient: string[];
   otrasMarcas: string;
@@ -83,11 +84,12 @@ export default function Form() {
     motivoRuptura: '',
     recomendacion: 0,
     ofertasSimilares: 0,
+    interesImportadorDirecto: 0,
     nivelDeSatisfaccion: 0,
     comentario: '',
     fecha: new Date().toISOString().split('T')[0],
-    marcasClient: [], // Inicializar con un array vacío
-    otrasMarcas: '', // Inicializar como cadena vacía
+    marcasClient: [],
+    otrasMarcas: '',
   });
 
   useEffect(() => {
@@ -181,6 +183,7 @@ export default function Form() {
           motivoRuptura: '',
           recomendacion: 0,
           ofertasSimilares: 0,
+          interesImportadorDirecto: 0,
           nivelDeSatisfaccion: 0,
           comentario: '',
           fecha: new Date().toISOString().split('T')[0],
@@ -233,7 +236,7 @@ export default function Form() {
 
         // Verificar que al menos una marca esté seleccionada
         const isSelectedValidBrand = formData.marcasClient.some((marca) =>
-          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "B-Max"].includes(marca)
+          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMAX", "Aiper", "PXN", "Anthbot"].includes(marca)
         );
 
         // Verificar si "Otra" está seleccionada y se ingresó una marca
@@ -249,7 +252,7 @@ export default function Form() {
       case 3:
         return Object.keys(formData.atributosLatamly).length === atributos.length && formData.nivelDeSatisfaccion;
       case 4:
-        return formData.motivoRuptura && formData.comentario && formData.recomendacion && formData.ofertasSimilares;
+        return formData.motivoRuptura && formData.comentario && formData.recomendacion && formData.ofertasSimilares && formData.interesImportadorDirecto;
       default:
         return true;
     }
@@ -308,7 +311,7 @@ export default function Form() {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-6">
                     <div className="col-span-2 grid grid-cols-4 gap-4">
-                      {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "B-Max"].map((marca) => (
+                      {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMAX", "Aiper", "PXN", "Anthbot"].map((marca) => (
                         <Checkbox
                           key={marca}
                           isSelected={selectedMarcas.includes(marca)}
@@ -508,7 +511,7 @@ export default function Form() {
                 <div className="pt-14 pl-8 pb-14 pr-8">
                   <div className="flex flex-row">
                     <div>
-                      <p>¿Cuales situaciones o acciones pueden ser motivos de ruptura de vinculos?</p>
+                      <p>¿Cuáles situaciones o acciones pueden ser motivos de ruptura de vinculos?</p>
                     </div>
                   </div>
                   <div>
@@ -595,10 +598,45 @@ export default function Form() {
                     </table>
                   </div>
                 </div>
+                {/* Nueva pregunta: interés en importador directo */}
+                <div className="pt-14 pb-6 pl-8">
+                  <div className="flex flex-row">
+                    <div className="pb-4">
+                      <p>¿Estaría interesado en que Latamly lo acompañe en el proceso de convertirse en importador directo de nuestras marcas?</p>
+                    </div>
+                  </div>
+                  <div>
+                    <table className="table-auto">
+                      <thead>
+                        <tr className="text-sm">
+                          <td className="p-3">Nada interesado</td>
+                          <td className="p-6">Poco interesado</td>
+                          <td className="p-6">Neutral</td>
+                          <td className="p-6">Interesado</td>
+                          <td className="p-3">Muy interesado</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="text-center text-sm">
+                          {Array.from({ length: 5 }).map((_, radioIndex) => (
+                            <td key={radioIndex}>
+                              <input className="w-7 h-7 checked:accent-gray-500"
+                                type="radio"
+                                name="interesImportadorDirecto"
+                                value={radioIndex + 1}
+                                onChange={() => setFormData({ ...formData, interesImportadorDirecto: radioIndex + 1 })}
+                              />
+                            </td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
                 <div className="pt-14 pl-8 pb-14 pr-8 bg-[#F3EFEF]">
                   <div className="flex flex-row">
                     <div className="pb-3">
-                      <p>¿Hay alguna otra cosa que te gustaría decirnos?</p>
+                      <p>¿Hay algún otro comentario, oportunidad de mejora o sugerencia que nos ayude a potenciar nuestra relación comercial?</p>
                     </div>
                   </div>
                   <div>
@@ -654,21 +692,21 @@ export default function Form() {
               </div>
             )}
             {currentStep === 4 && (
-                          <div className="flex justify-center items-center">
-                            <Button
-                              type="submit"
-                              className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
-                              onClick={handleSubmit}
-                              disabled={isSubmitting}
-                            >
-                              {isSubmitting ? (
-                                <Spinner className="animate-spin text-white text-xl" />
-                              ) : (
-                                <p className="m-0">ENVIAR</p>
-                              )}
-                            </Button>
-                          </div>
-                        )}
+              <div className="flex justify-center items-center">
+                <Button
+                  type="submit"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <Spinner className="animate-spin text-white text-xl" />
+                  ) : (
+                    <p className="m-0">ENVIAR</p>
+                  )}
+                </Button>
+              </div>
+            )}
           </div>
           {showGif && (
             <div className="flex justify-center items-center">

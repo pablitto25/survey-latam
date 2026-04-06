@@ -169,7 +169,7 @@ export default function Form() {
         return Object.keys(formData.evaluaciones).length === atributos.length;
       case 3:
         return formData.motivoRuptura && formData.recomendacion && formData.nivelDeSatisfaccion;
-      case 4: 
+      case 4:
         return formData.comentario;
       default:
         return true;
@@ -249,7 +249,7 @@ export default function Form() {
                         <table className="table-auto">
                           <thead>
                             <tr className="text-sm">
-                              <td className="p-3">Very unsatisfied</td>
+                              <td className="p-3">Very Dissatisfied</td>
                               <td className="p-6">Unsatisfied</td>
                               <td className="p-6">Neutral</td>
                               <td className="p-6">Satisfied</td>
@@ -418,7 +418,7 @@ export default function Form() {
               <div className="pt-14 pl-8 pb-14 pr-8">
                 <div className="flex flex-row pb-4">
                   <div>
-                    <p className="text-lg">Is there anything else you would like to tell us?</p>
+                    <p className="text-lg">Do you have any additional comments, areas for improvement, or suggestions to help us strengthen our business relationship?</p>
                   </div>
                 </div>
                 <div>
@@ -473,21 +473,21 @@ export default function Form() {
               </div>
             )}
             {currentStep === 4 && (
-                          <div className="flex justify-center items-center">
-                            <Button
-                              type="submit"
-                              className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
-                              onClick={handleSubmit}
-                              disabled={isSubmitting}
-                            >
-                              {isSubmitting ? (
-                                <Spinner className="animate-spin text-white text-xl" />
-                              ) : (
-                                <p className="m-0">ENVIAR</p>
-                              )}
-                            </Button>
-                          </div>
-                        )}
+              <div className="flex justify-center items-center">
+                <Button
+                  type="submit"
+                  className="w-40 h-12 bg-[#000000] mb-8 text-white text-[1.2rem] rounded-full flex justify-center items-center"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <Spinner className="animate-spin text-white text-xl" />
+                  ) : (
+                    <p className="m-0">ENVIAR</p>
+                  )}
+                </Button>
+              </div>
+            )}
           </div>
           {showGif && (
             <div className="flex justify-center items-center">
