@@ -235,7 +235,7 @@ export default function Form() {
 
         // Verificar que al menos una marca esté seleccionada
         const isSelectedValidBrand = formData.marcasCommercial.some((marca) =>
-          ["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMAX"].includes(marca)
+          ["Redragon", "T-Dagger", "Haxly", "XPPEN", "Jackery", "Cecotec", "BMAX"].includes(marca)
         );
 
         // Verificar si "Otra" está seleccionada y se ingresó una marca
@@ -310,7 +310,7 @@ export default function Form() {
                   </div>
                   <div className="grid grid-cols-3 gap-4 pt-6">
                     <div className="col-span-2 grid grid-cols-4 gap-4">
-                      {["Redragon", "T-Dagger", "Haxly", "XP-Pen", "Jackery", "Cecotec", "BMAX", "Aiper", "PXN", "Anthbot"].map((marca) => (
+                      {["Redragon", "T-Dagger", "Haxly", "XPPEN", "Jackery", "Cecotec", "BMAX", "Aiper", "PXN", "Anthbot"].map((marca) => (
                         <Checkbox
                           key={marca}
                           isSelected={selectedMarcas.includes(marca)}
