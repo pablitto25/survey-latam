@@ -17,7 +17,7 @@ export const HeaderEs = () => {
       <div className="relative mx-auto max-w-5xl h-full">
         <div className="absolute top-1/2 left-0 -translate-y-1/2 p-4">
           <h1 className="text-lg text-black font-bold">
-            Satisfaction survey {currentYear}
+            Encuesta de satisfacción {currentYear}
           </h1>
           <h1 className="text-lg text-black">Latamly Group</h1>
         </div>
